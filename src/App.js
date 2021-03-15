@@ -9,7 +9,8 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            monsters: []
+            monsters: [],
+            searchFields: ''
         }
     }
 
@@ -22,17 +23,17 @@ class App extends Component {
     }
 
     render() {
+        const {monsters, searchFields} = this.state;
+        const filterMonsters = monsters.filter(monster =>
+            monster.name.toLowerCase().includes(searchFields.toLowerCase())
+        )
         return (
             <>
                 <div className="App">
-                    <CardList name="Alexis">
-                        {/*<h1>Inside the CardList tag</h1>*/}
-                        {
-                            this.state.monsters.map(monster => (
-                                <h1 key={monster.id}> {monster.name} </h1>
-                            ))
-                        }
-                    </CardList>
+                    {/*<input type="search" placeholder="Search By Name" onChange={ $event => this.setState({ //  this is asyncronis*/}
+                    {/*    searchFields : $event.target.value*/}
+                    {/*})} />*/}
+                    <CardList monsters={filterMonsters}/>
 
                 </div>
             </>
