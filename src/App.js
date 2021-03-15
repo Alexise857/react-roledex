@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import React, {Component} from 'react'
 
 import {CardList} from "./components/card-list/card-list.component";
+import {SearchBox} from "./components/search-box/search-box.component";
 
 import './App.css';
 
@@ -30,9 +31,14 @@ class App extends Component {
         return (
             <>
                 <div className="App">
-                    <input type="search" placeholder="Search By Name" onChange={$event => this.setState({ //  this is asyncronis
-                        searchFields: $event.target.value
-                    })}/>
+                    {/*<input type="search" placeholder="Search By Name" onChange={$event => this.setState({ //  this is asyncronis*/}
+                    {/*    searchFields: $event.target.value*/}
+                    {/*})}/>*/}
+                    <SearchBox
+                        handleChange={$event => this.setState({ //  this is asyncronis
+                            searchFields: $event.target.value
+                        })}
+                        placeholder='Search by Name'/>
                     <CardList monsters={filterMonsters}/>
 
                 </div>
