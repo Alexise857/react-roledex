@@ -30,9 +30,9 @@ class App extends Component {
         return (
             <>
                 <div className="App">
-                    {/*<input type="search" placeholder="Search By Name" onChange={ $event => this.setState({ //  this is asyncronis*/}
-                    {/*    searchFields : $event.target.value*/}
-                    {/*})} />*/}
+                    <input type="search" placeholder="Search By Name" onChange={$event => this.setState({ //  this is asyncronis
+                        searchFields: $event.target.value
+                    })}/>
                     <CardList monsters={filterMonsters}/>
 
                 </div>
