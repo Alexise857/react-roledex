@@ -15,6 +15,12 @@ class App extends Component {
         }
     }
 
+    handleChange = (e) => {
+        this.setState({
+            searchFields: e.target.value
+        })
+    }
+
     componentDidMount() { // se renderiza en el DOM por la primera vez
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
@@ -31,13 +37,16 @@ class App extends Component {
         return (
             <>
                 <div className="App">
+                    <h1>Monsters Rolodex</h1>
                     {/*<input type="search" placeholder="Search By Name" onChange={$event => this.setState({ //  this is asyncronis*/}
                     {/*    searchFields: $event.target.value*/}
                     {/*})}/>*/}
+                    {/*
+                     this.handleChange() ---> se dispara con el render
+                     this.handleChange ---> se dispara solo si se hace click
+                     */}
                     <SearchBox
-                        handleChange={$event => this.setState({ //  this is asyncronis
-                            searchFields: $event.target.value
-                        })}
+                        handleChange={this.handleChange}
                         placeholder='Search by Name'/>
                     <CardList monsters={filterMonsters}/>
 
